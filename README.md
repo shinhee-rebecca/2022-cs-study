@@ -1,6 +1,6 @@
 ## 2022 하반기 기술 면접 스터디
 
-✅ 스터디 목표 및 일정
+✅ [스터디 목표 및 일정](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/ETC/스터디%20목표%20및%20일정.md)
 
 ✅ 진행 방식
 
