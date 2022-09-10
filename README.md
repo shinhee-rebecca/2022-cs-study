@@ -12,7 +12,7 @@
 
 | 노신희                                                       | 손찬영 | 이송희 | 조찬영 |
 | ------------------------------------------------------------ | ------ | ------ | ------ |
-| [notion](https://dynamic-street-8aa.notion.site/TIL-61009f707a2e4c81aab09a288222d6f1) |        |        |        |
+| [gitRepo](https://github.com/shinhee-rebecca/TIL/blob/main/README.md) |        |        |        |
 
 ---
 
