@@ -4,7 +4,7 @@
 
 ✅ [진행 방식](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/ETC/진행%20방식.md)
 
-✅ 진행 규칙 및 참고 레포
+✅ [진행 규칙 및 참고 레포](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/ETC/진행%20규칙%20및%20참고%20레포.md)
 
 ---
 
