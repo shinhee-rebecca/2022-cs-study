@@ -10,7 +10,7 @@
 
 ## TIL
 
-| 노신희                                                       | 손찬영 | 이송희 | 조찬영 |
+| [노신희](https://github.com/shinhee-rebecca) | 손찬영 | 이송희 | 조찬영 |
 | ------------------------------------------------------------ | ------ | ------ | ------ |
 | [gitRepo](https://github.com/shinhee-rebecca/TIL/blob/main/README.md) |        |        |        |
 
