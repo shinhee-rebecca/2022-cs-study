@@ -180,4 +180,38 @@
 
 ---
 
+### 동기화 문제의 소프트웨어적 해결 방안
+
+**[ Algorithm 1 ]**
+
+| <img width="333" alt="Screen Shot 2022-09-12 at 4 14 24 PM" src="https://user-images.githubusercontent.com/59877415/189594378-ced2feb0-5031-4e06-9eea-232481945e62.png"> | 왼쪽의 코드 : P0 기준 코드 (P0 , P1 두개의 프로세스 가정)<br />turn : critical section에 들어간 프로세스<br /> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+- Mutual Exclusion 만족
+- Progress 불만족
+  - 프로세스 P0와 P1이 critical section에 교대로 들어가게 되어 있는데 P0이 critical section에 들어갔다 나왔는데 P1이 critical section에 들어가지 않으면 P0도 계속 critical section에 들어갈 수 없다.
+
+**[ Algorithm 2 ]**
+
+| <img width="394" alt="Screen Shot 2022-09-12 at 4 19 25 PM" src="https://user-images.githubusercontent.com/59877415/189595258-b7d9a278-fd2d-46f4-a8bc-2c4c4eb21766.png"> | (P0, P1 두개의 프로세스 가정)<br />flag : 두 프로세스가 각각 가지는 변수로 critical section에<br />들어가고자하는 의중을 나타냄 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+- Mutual Exclusion 만족
+- Progress 불만족
+  - 둘이 동시에 flag가 true인 경우 critical section에는 아무 프로세스도 들어가지 않은채로 무한 대기 상태가 됨
+
+**[ Algorithm 3 : Peterson's Algorithm ]**
+
+| <img width="434" alt="Screen Shot 2022-09-12 at 4 22 35 PM" src="https://user-images.githubusercontent.com/59877415/189595791-6299927c-0917-4881-94f7-ee7139d23539.png"> | turn과 flag를 모두 사용함<br /><br />다른 프로세스가 critical section에 들어갈 의사가 있고<br />다른 프로세스의 turn일 때만 기다림 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+- Mutual Exclusion, Progress, Bounded waiting 모두 만족
+- **Busy Waiting**의 문제가 있다. (spin lock)
+
+​		: critical section에 들어가도 되는지 확인하기 위해 while문을 계속 돈다.
+
+​		(CPU 할당시간을 while문에 다 쓸지도 모른다.)
+
+---
+
 ### 
