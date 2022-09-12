@@ -108,3 +108,12 @@
 # Process Synchronization (동기화 문제)
 
 - Concurrency Control (병행 제어) 와 같은 표현이다.
+
+### 컴퓨터 시스템 내부의 데이터 접근 패턴
+
+| <img width="435" alt="Screen Shot 2022-09-12 at 1 35 13 PM" src="https://user-images.githubusercontent.com/59877415/189574732-b079940f-c31a-484a-bbda-452b8fada342.png"> | - 데이터를 읽어와서 연산하고 저장한다.<br />- 읽기만 하면 문제가 없을텐데, 읽고 수정을 하면<br />동기화 문제가 발생한다.<br />- Execution Box와 Storage Box의 예시<br />1. CPU & Memory<br />2.  Computer 내부 & 디스크 (하드웨어 관점)<br />3. 프로세스 & 프로세스 주소 공간 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+---
+
+### 
