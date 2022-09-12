@@ -105,3 +105,6 @@
 
 - 교착 상태는 잘 일어나지 않으므로 발생하면 기기를 재시동한다. ~~껐켜~~
 
+# Process Synchronization (동기화 문제)
+
+- Concurrency Control (병행 제어) 와 같은 표현이다.
