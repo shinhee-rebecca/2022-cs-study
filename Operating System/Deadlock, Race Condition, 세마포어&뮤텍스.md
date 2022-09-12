@@ -214,4 +214,11 @@
 
 ---
 
+### 동기화 문제의 하드웨어적 해결 방안
+
+| <img width="318" alt="Screen Shot 2022-09-12 at 4 27 36 PM" src="https://user-images.githubusercontent.com/59877415/189596708-3fb99bfc-b426-44e9-b4b9-f1a6035dee1c.png"> | Test_and_Set이라는<br />하나의 명령어로 읽고 쓰기가 함께 됨<br /><br />lock이 false로 읽히면서 True로 바뀌고<br />critical section을 사용하고 나오면서<br />lock이 false로 바뀜 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+---
+
 ### 
