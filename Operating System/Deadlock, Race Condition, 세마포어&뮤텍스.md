@@ -243,4 +243,35 @@
 
 ---
 
+### Block / Wakeup (Sleep lock)
+
+| <img width="410" alt="Screen Shot 2022-09-12 at 5 34 18 PM" src="https://user-images.githubusercontent.com/59877415/189609012-012c8434-ccf2-4cda-a810-ba6ab7fb31c5.png"> | <img width="405" alt="Screen Shot 2022-09-12 at 5 34 27 PM" src="https://user-images.githubusercontent.com/59877415/189609038-2d40f470-ff63-4ebe-b588-b8de79888d61.png"> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+- Block / Wakeup 방식이란
+
+  - busy-wait를 개선한 방법
+
+  - 자원 획득을 희망하지만 자원을 획득할 수 없는 프로세스는 block 시킨다.
+
+    → block된 프로세스의 PCB를 semaphore의 wait-queue에 넣는다.
+
+  - 다른 프로세스가 자원을 반납하면 block된 프로세스들 중 하나가 wakeup되는 방식이다.
+
+    → wakeup된 프로세스의 PCB를 ready-queue로 옮긴다.
+
+- 구현 코드
+
+| <img width="476" alt="Screen Shot 2022-09-12 at 5 35 52 PM" src="https://user-images.githubusercontent.com/59877415/189609318-5424eac4-acb4-40b4-9d5e-4ac843484085.png"> | <img width="474" alt="Screen Shot 2022-09-12 at 5 35 57 PM" src="https://user-images.githubusercontent.com/59877415/189609328-a55ca5b5-3320-47be-b402-f8d4f8ef3e72.png"> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| S의 값을 1 빼준다.<br />S의 값이 0보다 작으면 여분이 없다는 의미이고<br />해당 프로세스의 PCB를 S.L에 연결해준다. | S의 값을 1 더해준다.<br />S의 값이 0 이하이면 **어떤 프로세스가 S.L에서**<br />**기다리며 잠들어 있다는 의미이다.** |
+
+- 두 방식의 비교
+
+| Block / Wakeup                                               | Busy-wait                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| - CPU를 의미있게 사용하는 비율이 높아진다.<br />- 프로세스의 상태를 block에서 ready로 변경하는데<br />오버헤드가 있다<br />- critical section의 길이가 아주 짧지 않으면 일반적으로<br />권장된다. | - critical section의 길이가 아주 짧으면<br />사용이 권장된다. |
+
+---
+
 ### 
