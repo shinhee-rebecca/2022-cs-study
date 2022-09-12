@@ -342,3 +342,22 @@
 
 ---
 
+**References**
+
+[ 정리 내용 출처 ]
+
+http://www.kocw.net/home/cview.do?cid=3646706b4347ef09
+
+http://www.kocw.net/home/cview.do?cid=5c3c30382c7bbcf6
+
+[ 사용 이미지 출처 ]
+
+http://www.kocw.net/home/cview.do?cid=3646706b4347ef09
+
+http://www.kocw.net/home/cview.do?cid=5c3c30382c7bbcf6
+
+https://www.geeksforgeeks.org/introduction-of-deadlock-in-operating-system/
+
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=three_letter&logNo=220380867227
+
+https://truemind5.blogspot.com/2017/04/12-1.html
