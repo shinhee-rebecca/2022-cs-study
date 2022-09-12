@@ -274,4 +274,37 @@
 
 ---
 
+### Classical Problems of SynChronization
+
+1. Bounded-Buffer Problem (Producer-Consumer Problem)
+
+| <img width="587" alt="Screen Shot 2022-09-12 at 7 41 29 PM" src="https://user-images.githubusercontent.com/59877415/189634218-fe28d62c-f7a2-41ad-a13b-3e34e76274ad.png"> | <img width="526" alt="Screen Shot 2022-09-12 at 7 42 52 PM" src="https://user-images.githubusercontent.com/59877415/189634521-5218c332-ae12-4e14-a797-aa3cc8334ede.png"> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| - process가 2종류 : producer, consumer                       | - mutex : lock을 위한 변수<br />- full / empty : 들어있는 / 비어있는 버퍼의 수 |
+
+- semaphore의 역할 
+  - lock을 통해 두 프로세스의 접근을 막음
+  - full, empty 등 가용 자원의 개수를 셈 (생산자와 소비자의 입장에서 가용 자원의 수는 반대임, 각각 empty와 full)
+
+2. Readers and Writers Problem
+
+| <img width="543" alt="Screen Shot 2022-09-12 at 7 49 10 PM" src="https://user-images.githubusercontent.com/59877415/189635559-d82fdb42-1f24-4167-998f-36a9baa707cb.png"> | - 한 프로세스가 DB에 write 중일 때 다른 프로세스<br />는 접근할 수 없다.<br />- read는 여러 프로세스가 동시에 할 수 있다.<br />- writer는 대기중인 reader가 없을 때 접근이<br />허용된다. |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+- 공유 데이터 : DB, readcount
+  - readcount 또한 공유 자원이므로 값을 변화시킬 때 lock을 걸어주어야 한다.
+- writer의 starvation이 발생할 수 있고 우선순위 부여를 통해 이 문제를 해결할 수 있다.
+
+3. Dining-Philosophers Problem
+
+| <img width="265" alt="Screen Shot 2022-09-12 at 7 54 53 PM" src="https://user-images.githubusercontent.com/59877415/189636525-934dd9ce-41bb-48e1-ac1a-58d10a9bd30b.png"> | <img width="213" alt="Screen Shot 2022-09-12 at 7 54 58 PM" src="https://user-images.githubusercontent.com/59877415/189636548-c37dc6a2-ea4c-4552-a86e-99b2ec5d4714.png"> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+- 철학자 5명은 생각하는 일 (배부를 때) 과 밥먹는 일 (배고플 때) 을 한다.
+- 5명의 철학자가 모두 왼쪽 젓가락을 동시에 잡을 경우 데드락의 가능성이 있다.
+  - 비대칭적 젓가락 잡기를 통해 개선이 가능하다. (짝수번은 왼쪽부터, 홀수번은 오른쪽부터)
+  - 양쪽의 젓가락을 다 잡을 수 있지 않으면 젓가락을 반납하는 것으로도 해결할 수 있다.
+
+---
+
 ### 
