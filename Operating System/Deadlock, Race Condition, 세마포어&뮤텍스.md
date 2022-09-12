@@ -307,4 +307,38 @@
 
 ---
 
-### 
+### Monitor
+
+- Semaphore의 문제점 (Monitor의 필요성)
+  - 코딩하기 어렵고 한 번의 실수가 모든 시스템에 치명적인 영향을 끼친다.
+  - 정확성을 입증하기 어렵다.
+
+**[ Monitor ]**
+
+| <img width="502" alt="Screen Shot 2022-09-12 at 11 30 59 PM" src="https://user-images.githubusercontent.com/59877415/189681225-ab6ea1f9-6220-468d-a348-2f50432b1eeb.png"> | <img width="255" alt="Screen Shot 2022-09-12 at 7 59 47 PM" src="https://user-images.githubusercontent.com/59877415/189637378-8d46b6b4-dc08-41ea-a967-3f70f53363c4.png"> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+- 프로그래머가 동기화 제약 조건을 명시적으로 코딩할 필요가 없다.
+
+  **(프로그래머는 lock을 걸거나 unlock을 할 필요가 없다.)**
+
+- 모니터 내에서는 한 번에 하나의 프로세스 만이 활동할 수 있다.
+
+- 공유 데이터는 monitor 내부의 procedure를 통해서만 접근할 수 있다.
+
+- 프로세스가 monitor 안에서 기다릴 수 있도록 condition variable을 사용한다.
+
+- condition variable은 wait와 signal 연산에 의해서만 접근할 수 있다.
+
+| <img width="500" alt="Screen Shot 2022-09-12 at 8 02 01 PM" src="https://user-images.githubusercontent.com/59877415/189638026-21f090de-afaa-4fae-bf9e-87e1c9317270.png"> | - Producer-Consumer Problem을<br />monitor를 사용하여 바꾼 코드<br /><br />- wait 연산<br />해당 프로세스는 다른 프로세스가 invoke할<br />때 까지 suspend 된다.<br /><br />- signal 연산<br />정확하게 하나의 suspend된 프로세스를<br />resume한다. |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+| Semaphore                                                    | Monitor                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 프로그래머가 자원의 획득과 반납에 관한 코드를 작성한다.      | Monior 차원에서 동시 접근을 제어한다.                        |
+| <img width="582" alt="Screen Shot 2022-09-12 at 11 32 28 PM" src="https://user-images.githubusercontent.com/59877415/189681259-2e2d52b7-7fcd-4789-9bbc-50645db4f8f5.png"> | <img width="585" alt="Screen Shot 2022-09-12 at 11 31 19 PM" src="https://user-images.githubusercontent.com/59877415/189681270-1cdf620c-2ff9-4b15-88c7-c3648a636743.png"> |
+
+- Semaphore와 Monitor의 차이는 명확하나 둘의 코드는 크게 다르지 않다.
+
+---
+
