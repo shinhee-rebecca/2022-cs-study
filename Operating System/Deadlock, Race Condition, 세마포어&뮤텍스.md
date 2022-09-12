@@ -167,4 +167,17 @@
 
 ---
 
+### 동기화 문제
+
+| <img width="217" alt="Screen Shot 2022-09-12 at 4 06 01 PM" src="https://user-images.githubusercontent.com/59877415/189592961-c8c8a9ec-f25f-4515-8d8b-c2f4597580c3.png"> | 동기화 문제를 해결하는 방법<br /><br />entry section : 공유 데이터에 접근하기 전에 lock을 건다.<br />exit section : 공유 데이터의 사용을 마치고 lock을 푼다. |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+**[ 동기화 문제를 해결하기 위해 충족해야 할 조건 ]**
+
+1. **Mutual Exclusion** : 특정 프로세스가 critical section을 수행중이면 다른 프로세스들은 critical section에 들어가면 안된다.
+2. **Progress** : critical section에 어떤 프로세스도 없으면 특정 프로세스가 critical section에 들어가고자 할 때 들어가게 해준다. (두 프로세스가 동시에 critical section에 들어가는걸 막으려다가 어떤 프로세스도 들어가지 못할 수 있다.)
+3. **Bounded Waiting** : 프로세스가 critical section에 들어가려고 요청한 후부터 그 요청이 허용될 때까지 다른 프로세스들이 critical section에 들어가는 횟수에 한계가 있어야 한다. (starvation 방지)
+
+---
+
 ### 
