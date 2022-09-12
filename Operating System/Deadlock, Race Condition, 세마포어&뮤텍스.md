@@ -133,4 +133,38 @@
 
 ---
 
+### Race Condition이 발생하는 경우
+
+1. (process의 system call로) 커널모드로 작업을 수행하던 중 interrupt가 발생하여 interrupt 처리 루틴이 수행되는 경우
+
+| <img width="549" alt="Screen Shot 2022-09-12 at 2 58 01 PM" src="https://user-images.githubusercontent.com/59877415/189583348-022123d6-c7fb-4f1f-a929-365e7f8f9784.png"> | 양쪽 다 커널 코드이므로<br />kernel address space가<br />공유된다.<br /><br />해결책 : 중요한 데이터를 처리하고 있으면<br />interrupt가 들어와도 처리를 미룬다. |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+2. (process의 system call로) 커널모드로 작업을 수행하던 중 context switching이 일어나는 경우
+
+| <img width="516" alt="Screen Shot 2022-09-12 at 3 04 34 PM" src="https://user-images.githubusercontent.com/59877415/189584255-b82af1af-dd91-4151-88d3-b10621428e7c.png"> | - 커널 코드가 두 프로세스에서 수행되므로<br />kernel address space가 공유된다.<br /><br />해결책 : 프로세스 수행에 할당된 시간이<br />끝나도 kernel 코드를 수행중일 때는<br />다른 process가 CPU를 선점할 수 없게 한다. |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+3. Multiprocessor (여러개의 CPU)가 공유자원 내의 kernel data를 접근하는 경우
+
+- 해결책1
+  - kernel에는 1개의 CPU만이 접근할 수 있게 한다.
+  - 대단히 비효율적이다.
+- 해결책2
+  - 커널 내부에 있는 공유 데이터에 접근할 때마다 각 데이터에 lock / unlock을 한다.
+  - 해결책1보다 효율적이다.
+
+[ 주의 사항 ]
+
+- 여러 프로세스가 공유 자원을 사용한다고 해서 무조건 Race Condition에 놓이는 것은 아니다. kernel 내부 데이터에 동시에 접근하려 해야 Race Condition에 놓였다고 할 수 있다.
+
+[ Critical Section (임계 구역) ]
+
+- 공유 데이터에 접근하려는 코드
+- 예시
+  - X = X + 1
+  - X = X - 1
+
+---
+
 ### 
