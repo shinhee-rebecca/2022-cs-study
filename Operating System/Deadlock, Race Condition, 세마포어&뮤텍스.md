@@ -221,4 +221,26 @@
 
 ---
 
+### Semaphores
+
+- Semaphore는 공유자원의 사용과 반납을 처리하기 위한 일종의 추상자료형이다.
+- Semaphore의 값 S와 2개의 연산(P 연산, V 연산)으로 구성되어 있다.
+  - 예를 들어 S가 5이면 자원의 개수가 5개이다.
+
+| <img width="303" alt="Screen Shot 2022-09-12 at 5 21 13 PM" src="https://user-images.githubusercontent.com/59877415/189606382-66fdd576-6f3b-4c90-ac89-c3d6237bc780.png"> | <img width="304" alt="Screen Shot 2022-09-12 at 5 21 21 PM" src="https://user-images.githubusercontent.com/59877415/189606429-82fcacfa-8f12-459a-a55b-70835fe9564c.png"> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 공유 자원을 획득하여 사용하는 연산<br />(**busy-wait** 문제가 있다.) | 공유 자원을 사용하고 반납하는 연산                           |
+
+- Semaphore의 종류
+
+| Counting Semaphore                                           | Binary Semaphore                                             |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| - semaphore의 값이 0 이상의 정수 값이다.<br />(0, 3, 5, 10... 등등)<br />- 주로 resource counting에 사용된다. | - semaphore의 값이 0 또는 1이다.<br />(자원의 개수가 1개이다.)<br />- 주로 mutual exclusion에 사용된다.<br />(lock / unlock) |
+
+- Semaphore를 Critical Section에 적용한 코드
+
+<img width="488" alt="Screen Shot 2022-09-12 at 5 28 02 PM" src="https://user-images.githubusercontent.com/59877415/189607757-cf1e43d7-1af2-4ce5-8bbc-da897fb4c70e.png">
+
+---
+
 ### 
