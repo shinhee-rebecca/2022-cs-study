@@ -12,7 +12,7 @@
 
 | [노신희](https://github.com/shinhee-rebecca) | [손찬영](https://github.com/chaaaany) | [이송희](https://github.com/songhee-lee) | [조찬영](https://github.com/cotchan) |
 | ------------------------------------------------------------ | ------ | ------ | ------ |
-| [gitRepo](https://github.com/shinhee-rebecca/TIL/blob/main/README.md) |        |        |        |
+| [gitRepo](https://github.com/shinhee-rebecca/TIL/blob/main/README.md) |        | [gitRepo](https://songhee-lee.github.io/)       |        |
 
 ---
 
