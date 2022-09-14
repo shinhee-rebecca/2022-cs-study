@@ -45,7 +45,7 @@ Process 란 실행 중인 프로그램으로 job, task, sequential process 라�
   <summary><b>Process Control Block(PCB)</b></summary>
   <div markdown="1">       
 
-    ![process control block](/assets/img/os/pcb.png)
+    ![process control block]([/assets/img/os](https://github.com/songhee-lee/songhee-lee.github.io/blob/main/assets/img/os)/pcb.png)
     <br> 운영체제가 각 프로세스를 관리하기 위해 프로세스 당 유지하는 정보로, kernel data영역에 있다. <br>
     
     1. OS가 관리상 사용하는 정보
