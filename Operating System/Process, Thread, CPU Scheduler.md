@@ -33,7 +33,7 @@ Process 란 실행 중인 프로그램으로 job, task, sequential process 라�
 ## Process Context
 
 프로그램이 어떤 것을 실행했고, 현재 어느 시점에 있는지 정확하게 규명하기 위한 모든 요소 집합.
-<br>![prcoess_context](https://github.com/songhee-lee/songhee-lee.github.io/blob/main/assets/img/os/process_context.png)
+<br>![prcoess_context](./img/process_context.png)
 
 <br> 위 그림과 같이 크게 세 가지 파트로 나눌 수 있다.
 
@@ -56,7 +56,7 @@ Process 란 실행 중인 프로그램으로 job, task, sequential process 라�
   <div markdown="1">       
 
 
-    ![process control block]([/assets/img/os](https://github.com/songhee-lee/songhee-lee.github.io/blob/main/assets/img/os)/pcb.png)
+    ![process control block](./img/pcb.png)
     <br> 운영체제가 각 프로세스를 관리하기 위해 프로세스 당 유지하는 정보로, kernel data영역에 있다. <br>
 
       1. OS가 관리상 사용하는 정보
@@ -98,7 +98,7 @@ Process 란 실행 중인 프로그램으로 job, task, sequential process 라�
 ## Process State
 
 프로세스는 상태(State)가 변경되며 수행된다.
-<br>![process state](https://github.com/songhee-lee/songhee-lee.github.io/blob/main/assets/img/os/process_state.png)
+<br>![process state](./img/process_state.png)
 
 <details>
 <summary>1. New : 프로세스 생성</summary>
@@ -187,7 +187,7 @@ blocked -> ready : Process 자신이 요청한 event(예: I/O)가 만족될 때 
 <br> 동일한 일을 하는 프로세스를 여러 개 실행할 때, 프로세스를 여러 개 만들면 주소공간이 낭비되기 때문에 
 주소 공간을 하나만 두고(공유할 수 있는 자원은 공유) 실행하는 방식이다.
 
-<br>![thread pcb](https://github.com/songhee-lee/songhee-lee.github.io/blob/main/assets/img/os/thread_pcb.png)
+<br>![thread pcb](./img/thread_pcb.png)
 
 <br> **[ 장점 ]**
 
@@ -198,7 +198,7 @@ blocked -> ready : Process 자신이 요청한 event(예: I/O)가 만족될 때 
 
 ## Thread 구현
 
-<br>![thread implementation](https://github.com/songhee-lee/songhee-lee.github.io/blob/main/assets/img/os/thread_implementation.png)
+<br>![thread implementation](./img/thread_implementation.png)
 
 ### a. User Threads
 
@@ -302,7 +302,7 @@ CPU를 한 프로세스에서 다른 프로세스로 넘겨주는 과정으로, 
 ### Process state
 
 process state에 suspend(stopped)가 추가된다.
-<br>![process state(2)](https://github.com/songhee-lee/songhee-lee.github.io/blob/main/assets/img/os/prcess_state(2).png)
+<br>![process state(2)](./img/prcess_state(2).png)
 
 
 > ☝️ 여기서 잠깐. 
@@ -441,7 +441,7 @@ process state에 suspend(stopped)가 추가된다.
 원칙적으로 프로세스는 독립적이라, 하나의 프로세스가 다른 프로세스에 영향을 주지 못한다.
 <br> 그러나 협력이 필요한 경우가 있는데 이를 IPC라고 부른다.
 
-<br>![ipc](https://github.com/songhee-lee/songhee-lee.github.io/blob/main/assets/img/os/ipc.png)
+<br>![ipc](./img/ipc.png)
 
 - Message passing : 커널을 통해 메세지를 보내 통신한다.
 - Shared memory : 서로 다른 프로세스가 공유 메모리를 갖는다.
