@@ -103,3 +103,59 @@ Method, Resource, Representation of Resource에 대한 자세한 설명은 RESTf
 
 ---
 
+## 그외 메소드
+
+### 1. PUT
+
+기존 리소스가 있다면 대체하고 없다면 새로 생성할 때 사용하는 메서드이다.
+
+> POST vs PUT
+>
+> POST의 경우에는 URI의 결정권이 서버에 있고 PUT의 경우에는 클라이언트에 있다. 이때문에 같은 요청을 반복하면 POST의 경우에는 데이터가 계속 생성되지만 PUT의 경우에는 그렇지 않다.
+>
+> > URI vs URL
+> >
+> > URI : 특정 리소스를 식별하는 통합 자원 식별자로 웹 기술에서 사용하는 논리적 또는 물리적 리소스를 식별하는 고유한 문자열 시퀀스이다. (URL을 포함하는 개념이다.)
+> >
+> > URL : 웹주소라고 불리며 컴퓨터 네트워크 상에서 리소스가 어디에 있는지 알려주기 위한 규약이다.
+> >
+> > <img width="750" alt="Screen Shot 2022-09-27 at 12 52 12 AM" src="https://user-images.githubusercontent.com/59877415/192323166-99515927-0812-4325-9b11-5ee78178e36c.png">
+
+<img width="847" alt="Screen Shot 2022-09-27 at 12 52 48 AM" src="https://user-images.githubusercontent.com/59877415/192323297-098b8503-50c8-451b-b309-d259e5c927fc.png">
+
+<img width="846" alt="Screen Shot 2022-09-27 at 12 53 38 AM" src="https://user-images.githubusercontent.com/59877415/192323491-1525b8f5-6fc2-4433-837f-896552720681.png">
+
+- 위와 같은 상황이 발생할 수 있으므로 부분적인 변경이 필요할 때에는 PUT의 사용이 권장되지 않는다.
+
+### 2. PATCH
+
+기존에 존재하는 리소스를 부분적으로 변경할 때 사용하는 메서드이다.
+
+> PUT vs PATCH
+>
+> PUT은 지정된 데이터를 전부 수정하지만 PATCH는 정보의 일부분을 변경한다. 따라서 PUT은 멱등하지만 PATCH는 멱등하지 않다. (PATCH 메서드가 이름을 happy로 바꾸는 경우 멱등하지만, 호출시마다 나이를 10씩 더하는 경우는 멱등하지 않다.)
+
+<img width="847" alt="Screen Shot 2022-09-27 at 12 59 03 AM" src="https://user-images.githubusercontent.com/59877415/192324632-eeed061a-6618-45b6-a59d-f6d5bd12740a.png">
+
+### 3. DELETE
+
+기존에 존재하는 리소스를 삭제할 때 사용하는 메서드이다.
+
+<img width="787" alt="Screen Shot 2022-09-27 at 1 10 55 AM" src="https://user-images.githubusercontent.com/59877415/192327136-c15171fa-0cce-49ef-b064-877f82ef8ac9.png">
+
+### 4. HEAD & OPTIONS & CONNECT & TRACE
+
+- HEAD: GET과 동일하지만 메시지 부분을 제외하고, 상태 줄과 헤더만 반환한다.
+
+- OPTIONS: 대상 리소스에 대한 통신 가능 옵션을 전송한다.
+
+- CONNECT: 대상 자원으로 식별되는 서버에 대한 터널을 설정한다.
+
+- TRACE: 대상 리소스에 대한 경로를 따라 메시지 루프백 테스트를 수행한다.
+
+  > 루프백 테스트란?
+  >
+  > 장치가 제대로 작동하는지 여부와 네트워크에 장애가 있는 노드가 존재하는지 확인하기 위해 수행한다.
+
+---
+
