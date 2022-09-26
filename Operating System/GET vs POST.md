@@ -1,6 +1,6 @@
 ## Index
 
-- [RESTful API](#RESTful API-(Representational-State-Transfer-API))
+- [RESTful API](#RESTful-API-(Representational-State-Transfer-API))
 
   → 개념 / 구성 / 작동방식 / 특징
 
