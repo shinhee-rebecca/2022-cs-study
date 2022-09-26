@@ -1,3 +1,21 @@
+## Index
+
+- [RESTful API](#RESTful API-(Representational-State-Transfer-API))
+
+  → 개념 / 구성 / 작동방식 / 특징
+
+- [Get vs Post](#Get-vs-Post)
+
+  → Get / Post
+
+- [그외 메소드](#그외-메소드)
+
+  → PUT / PATCH / DELETE / HEAD & OPTIONS & CONNECT & TRACE
+
+- [References](#References)
+
+---
+
 ## RESTful API (Representational State Transfer API)
 
 ### 1. 개념
