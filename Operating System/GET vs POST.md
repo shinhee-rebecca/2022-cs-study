@@ -159,3 +159,33 @@ Method, Resource, Representation of Resource에 대한 자세한 설명은 RESTf
 
 ---
 
+## References
+
+[REST API 제대로 알고 사용하기](https://meetup.toast.com/posts/92)
+
+[RESTful API란 무엇인가요?](https://aws.amazon.com/ko/what-is/restful-api/)
+
+[[Network] REST란? REST API란? RESTful이란?](https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html)
+
+[GET vs POST](https://github.com/workhardslave/cs-study/blob/main/Network/GET%20vs%20POST.md)
+
+[[HTTP] HTTP Method 정리 / GET vs POST 차이점](https://im-developer.tistory.com/166)
+
+[http 메소드와 상태코드](https://kyun2da.dev/CS/http-메소드와-상태코드/)
+
+[Http Method 란? (GET, POST, PUT, DELETE)](https://velog.io/@yh20studio/CS-Http-Method-란-GET-POST-PUT-DELETE)
+
+[HTTP Request 정리](https://velog.io/@josworks27/HTTP-Request-정리)
+
+[URI랑 URL 차이점이 뭔데?](https://www.charlezz.com/?p=44767)
+
+[PATCH 메서드가 멱등이 아닌 이유](https://www.inflearn.com/questions/110644)
+
+[루프백 테스트 란 무엇입니까? -techopedia에서 정의](https://ko.theastrologypage.com/loopback-test)
+
+[이미지 출처1](https://www.edureka.co/blog/what-is-rest-api/)
+
+[이미지 출처2](https://github.com/workhardslave/cs-study/blob/main/Network/GET%20vs%20POST.md)
+
+---
+
