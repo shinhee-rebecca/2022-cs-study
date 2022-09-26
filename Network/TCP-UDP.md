@@ -207,3 +207,9 @@ TCP는 네트워크 상에서 확실한 데이터의 전송을 보장하므로 �
 <br>
 <br>
 
+### UDP Header
+
+![TCP_vs_UDP_03.jpeg](./img/udp-header.png)
+
+8바이트의 헤더 길이를 갖는다. 포트 넘버와 길이, 체크섬의 구성으로 TCP에 비해 간단하다.
+
