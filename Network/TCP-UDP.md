@@ -240,4 +240,10 @@ TCP는 네트워크 상에서 확실한 데이터의 전송을 보장하므로 �
 
 -----=
 
+참고자료
 
+
+- https://enlqn1010.tistory.com/22#recentCommentsㅠ
+- https://github.com/workhardslave/cs-study/blob/e768d92a1d5e0f4f1b1d56a1713602663258ebd8/Network/TCP%20vs%20UDP.md
+- https://better-together.tistory.com/134
+- https://mindnet.tistory.com/entry/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-22%ED%8E%B8-TCP-3-WayHandshake-4-WayHandshake
