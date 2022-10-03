@@ -87,3 +87,33 @@
     ```
     
     - HTTP 헤더도 없고, HTML파일만 전송 가능했던 것이 특징
+
+<br>
+
+
+## HTTP 1.0(1996년)
+
+- 특징
+    - HTTP 헤더(`header`) 개념이 도입되어 요청과 응답에 추가
+    - 버전 정보, 요청 method가 함께 전송되기 시작.
+    - `Content-type` 도입으로 HTML이외의 문서 전송이 가능해짐
+- 한계
+    - `커넥션 하나` 당 `요청 하나` 와 `응답 하나` 만 처리가 가능. → HTTP 1.1에서 개선
+
+```html
+/* 요청 */
+GET /mypage.html HTTP/1.0
+User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)
+```
+
+```html
+/* 응답 */
+200 OK
+Date: Tue, 15 Nov 1994 08:12:31 GMT
+Server: CERN/3.0 libwww/2.17
+Content-Type: text/html
+<HTML>
+A page with an image
+  <IMG SRC="/myimage.gif">
+</HTML>
+```
