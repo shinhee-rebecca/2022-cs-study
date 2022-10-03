@@ -117,3 +117,24 @@ A page with an image
   <IMG SRC="/myimage.gif">
 </HTML>
 ```
+
+<br>
+
+## HTTP 1.1(1997년)
+
+- 특징
+    - Persistent Connection : 지정한 timeout 동안 커넥션을 닫지 않아 속도가 빨라짐
+    
+    ![Untitled](./img/http1.0_http1.1.png)
+    
+    - 파이프라이닝(Pipelining) : 송신자가 다수의 패킷을 한 번에 보내는 것.
+    
+    ![Untitled](./img/pipelining.png)
+    
+    - 호스트헤더(Host Header)
+- 단점
+  - HOL (Head of Line) blocking: 특정 응답의 지연. 앞 응답이 오래걸리면 뒤 요청은 `Blocking`되어버림.
+    ![Untitled](./img/hol.png)
+  - 무거운 header 구조(ex. 쿠키)
+
+<br><br>
