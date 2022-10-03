@@ -138,3 +138,17 @@ A page with an image
   - 무거운 header 구조(ex. 쿠키)
 
 <br><br>
+
+## HTTP2.0(2015년)
+
+- **Multiplexed Streams :** HTTP 1.1의 `HTTP Pipelining`의 개선안으로 하나의 Connection으로 동시에 여러 개의 메세지를 주고 받을 수 있음. 응답은 요청 순서에 상관없이 Stream으로 받기 때문에 `HOL Blocking`
+ 도 발생하지 않음
+
+![img](./img/mutiplexed_streams.png)
+
+- **Stream Prioritization : 응답에 대한 우선순위를 정해 우선순위가 높을수록 응답을 빨리함.**
+- **Header Compression :** Header Table과 Huffman Encoding을 사용하는 HPACK 압축방식으로 이를 개선. 클라이언트와 서버는 각각 Header Table을 관리하고 이전 요청과 동일한 필드는 table의 index만 보내고, 변경되는 값은 Huffman Encoding 후 보냄으로서 Header의 크기를 경령화.
+
+<br>
+<br>
+
