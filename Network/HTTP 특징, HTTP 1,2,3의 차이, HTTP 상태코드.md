@@ -228,3 +228,16 @@ A page with an image
 - 500 Internal Server Error : 서버 내부에 문제가 발생해서 오류가 발생함. 애매하면 500.
 - 503 Service Unavailable : 서버에 일시적인 과부하 또는 예정된 작업으로 잠시 요청을 처리할 수 없음.
 
+
+<참고자료> 
+
+[https://velog.io/@pear/HTTP-요청과-응답](https://velog.io/@pear/HTTP-%EC%9A%94%EC%B2%AD%EA%B3%BC-%EC%9D%91%EB%8B%B5)
+[https://victorydntmd.tistory.com/286](https://victorydntmd.tistory.com/286)
+[https://fomaios.tistory.com/entry/Network-HTTP의-특징에-대해-알아보기feat-비연결성-무상태](https://fomaios.tistory.com/entry/Network-HTTP%EC%9D%98-%ED%8A%B9%EC%A7%95%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0feat-%EB%B9%84%EC%97%B0%EA%B2%B0%EC%84%B1-%EB%AC%B4%EC%83%81%ED%83%9C)
+[https://hanamon.kr/네트워크-http-http란-특징-무상태-비연결성/](https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-http-http%EB%9E%80-%ED%8A%B9%EC%A7%95-%EB%AC%B4%EC%83%81%ED%83%9C-%EB%B9%84%EC%97%B0%EA%B2%B0%EC%84%B1/)
+[https://ojt90902.tistory.com/647?category=928801](https://ojt90902.tistory.com/647?category=928801)
+[https://velog.io/@neity16/HTTP-HTTP-버전-별-특징](https://velog.io/@neity16/HTTP-HTTP-%EB%B2%84%EC%A0%84-%EB%B3%84-%ED%8A%B9%EC%A7%95)
+[https://code-lab1.tistory.com/196](https://code-lab1.tistory.com/196)
+[https://code-lab1.tistory.com/27](https://code-lab1.tistory.com/27)
+https://haerang94.tistory.com/207
+https://ssungkang.tistory.com/entry/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-HTTP-11-VS-HTTP-20
