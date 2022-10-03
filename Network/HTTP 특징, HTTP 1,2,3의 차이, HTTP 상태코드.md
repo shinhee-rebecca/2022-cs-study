@@ -157,3 +157,5 @@ A page with an image
 
 클라이언트가 서버에 보낸 요청이 어떻게 처리되었는지 보여주는 코드.
 
+## 1xx(Informational) : 요청이 수신되어 처리중
+
