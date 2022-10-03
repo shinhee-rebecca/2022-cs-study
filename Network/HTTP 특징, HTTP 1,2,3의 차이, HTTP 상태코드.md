@@ -159,3 +159,19 @@ A page with an image
 
 ## 1xx(Informational) : 요청이 수신되어 처리중
 
+## 2xx(Successful) : 요청 정상 처리
+
+- **200 OK**
+
+![Untitled](./img/200.png)
+
+- 201 Created : 클라이언트 요청이 성공해서 새로운 리소스가 생성되었을 때 돌아오는 응답코드. HTTP Heder에 Location을 같이 넣어 응답한다.
+
+![Untitled](./img/201.png)
+
+- 202 Accepted : 요청이 접수되었으나 처리가 완료되지는 않았다는 뜻.
+- 204 No Contented : 서버가 요청을 성공적으로 수행했지만, 응답 페이로드 본문에 보낼 데이터가 없다는 뜻. (ex. 웹문서 편집기 save 버튼)
+
+<br>
+<br>
+
