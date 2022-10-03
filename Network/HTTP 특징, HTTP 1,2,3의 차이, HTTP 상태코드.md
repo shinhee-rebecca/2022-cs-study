@@ -223,3 +223,8 @@ A page with an image
 <br>
 <br>
 
+## 5xx(Server Error) : 서버 오류, 서버가 정상 요청을 처리하지 못함.
+
+- 500 Internal Server Error : 서버 내부에 문제가 발생해서 오류가 발생함. 애매하면 500.
+- 503 Service Unavailable : 서버에 일시적인 과부하 또는 예정된 작업으로 잠시 요청을 처리할 수 없음.
+
