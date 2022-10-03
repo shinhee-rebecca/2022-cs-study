@@ -67,3 +67,23 @@
 
 # HTTP 버전
 
+## HTTP 0.9 (1991년)
+
+- 특징
+    - 요청 method는 GET만 존재
+    
+    ```
+    /* 요청 */
+    GET /mypage.html
+    ```
+    
+    - 응답도 단순. 파일 자체로만 구성됨.
+    
+    ```
+    /* 응답 */
+    <HTML>
+    A very simple HTML page
+    </HTML>
+    ```
+    
+    - HTTP 헤더도 없고, HTML파일만 전송 가능했던 것이 특징
