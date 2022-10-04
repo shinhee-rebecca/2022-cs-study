@@ -127,7 +127,7 @@ HTTP 통신은 다음과 같은 특징을 가진다.
 
 ### 동작 과정
 
-![cookie 동작과정](/img/4-3_cookie_flow.png)
+![cookie 동작과정](./img/4-3_cookie_flow.png)
 
 1. 클라이언트가 서버에 요청
 2. 서버는 HTTP 응답 헤더에 `set-cookie 속성`을 추가하여 응답 →  클라이언트는 쿠키 저장
@@ -237,7 +237,7 @@ HTTP 통신은 다음과 같은 특징을 가진다.
 
 ### 동작 과정
 
-![session 동작과정](/img/4-3_session_flow.png)
+![session 동작과정](./img/4-3_session_flow.png)
 
 1. 클라이언트가 서버에 처음으로 요청을 보냄 (처음이라 `session id`가 존재하지 않음)
 2. 서버에서 `session id`를 발급하여 응답
@@ -321,7 +321,7 @@ HTTP 통신은 다음과 같은 특징을 가진다.
 
 ### 토큰 전달과 저장 방법
 
-![JWT 동작 과정](/img/4-3_jwt_flow.png)
+![JWT 동작 과정](./img/4-3_jwt_flow.png)
 
 #### 로그인 시
 
@@ -366,7 +366,7 @@ HTTP 통신은 다음과 같은 특징을 가진다.
 - 여전히 Access Token을 탈취 당하면 정보가 유출되는건 동일하지만, 유효기간이 짧아 조금 더 안전하게 하자는 의미 + 서버는 Refresh Token을 삭제함으로 강제 로그아웃 시킬 수 있음
 - 하지만 검증 프로세스가 길어져 구현이 복잡하고, Access Token 만료될 때 마다 새로 발급하는 과정에서 HTTP 요청 횟수가 많아 서버 자원 낭비로 이어질 수 있다.
 
-![](/img/4-3_refresh_token_flow.png)
+![](./img/4-3_refresh_token_flow.png)
 
 8. 시간이 흘러 `Access Token`이 만료
 
