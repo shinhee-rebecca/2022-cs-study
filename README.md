@@ -12,7 +12,7 @@
 
 | [노신희](https://github.com/shinhee-rebecca) | [손찬영](https://github.com/chaaaany) | [이송희](https://github.com/songhee-lee) | [조찬영](https://github.com/cotchan) |
 | ------------------------------------------------------------ | ------ | ------ | ------ |
-| [gitRepo](https://github.com/shinhee-rebecca/between-TIL-and-study-diary) |        | [gitRepo](https://songhee-lee.github.io/)       |  [gitRepo](https://cotchan.github.io)      |
+| [gitRepo](https://github.com/shinhee-rebecca/between-TIL-and-study-diary) | [gitRepo](https://github.com/chaaaany/2022_TIL)       | [gitRepo](https://songhee-lee.github.io/)       |  [gitRepo](https://cotchan.github.io)      |
 
 ---
 
