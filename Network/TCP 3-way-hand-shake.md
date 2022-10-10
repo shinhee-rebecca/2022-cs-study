@@ -8,7 +8,7 @@
     - [1st. SYN](#1st-syn)
     - [2nd. SYN + ACK](#2nd-syn--ack)
     - [3rd. ACK](#3rd-ack)
-    - [요청자 & 수신자 State](#client--server-state)
+    - [요청자 & 수신자 State](#요청자--수신자-state)
     - [3-way handshake 이후 데이터 송수신 과정](#3-way-handshake-이후-데이터-송수신-과정)
 1. [TCP 4-Way Handshake](#tcp-4-way-handshake)
     - [1st. FIN(요청자의 FIN)](#1st-fin요청자의-fin)
@@ -19,6 +19,13 @@
     - [CLOSE_WAIT](#close_wait)
     - [TIME_WAIT](#time_wait)
         - [TCP TIMESTAMP](#tcp-timestamp) 
+1. [SYN Flooding 공격](#syn-flooding-공격)
+    - [SYN Flooding 공격이란?](#syn-flooding-공격이란)
+    - [SYN Cookie](#syn-cookie)
+        - [SYN Flooding 공격 방지](#syn-flooding-공격-방지) 
+        - [정상적인 세션 연결과정](#정상적인-세션-연결과정)
+        - [SYN Cookie 정보](#syn-cookie-정보)
+    - [SYN Cookie 내용 정리](#syn-cookie-내용-정리) 
 
 ---
 
@@ -404,6 +411,61 @@ FIN+ACK, seq = L, ack = K + 1
 ACK, seq = K, ack = L + 1
 ```
 
+## SYN Flooding 공격
+
+### SYN Flooding 공격이란?
+
+- 3-way-hand-shake 과정에서 Server는 SYN 패킷과 ACK 패킷을 Client에게 전달합니다.
+- 그리고 Server는 Client의 접속을 받아들이기 위해 `RAM(메모리)`에 `일정 공간을 확보해두고 대기`합니다.
+  - SYN 패킷에 대한 세션을 생성하고 응답을 기다림 
+- 근데 이 때 Client가 SYN 패킷만 지속적으로 보내고 ACK 패킷을 보내지 않으면 `Server`는 Client 연결을 받아들이기 위해 RAM(메모리) 공간을 점점 더 많이 확보해둔 상태에서 대기합니다.
+  - Server의 세션 리소스가 고갈된 상황 
+- 그리고 Server의 RAM이 꽉 차게 되면 더 이상 연결을 받아들일 수 없게 되고, Server는 서비스를 할 수 없는 상태가 됩니다.  
+
+![synflood](https://user-images.githubusercontent.com/75410527/194807083-a12cfbec-4287-42ab-8641-ec553aaba6cd.png)
+
+### SYN Cookie
+
+- SYN Cookie는 클라이언트의 SYN 패킷에 대한 SYN/ACK 패킷을 전송할 때 `ISN(Initial Sequence Number)`에 Cookie 값을 넣어 전송하는 방식입니다.
+- 상대방이 ACK 패킷을 보내면, ACK 값을 Cookie 값과 비교하여 연결 유효성을 확인 후 리소스 서버와 TCP 연결을 맺도록 해줍니다.
+
+#### SYN Flooding 공격 방지
+
+- 공격자가 SYN 패킷을 보내 서버의 세션 리소스를 소진시키려고 합니다. 그러나 중간에 L4 장비(방화벽 또는 Anti-DDOS 장비)가 `SYN Cookie` 방식이 설정되어 있습니다.
+  - 그래서 공격자의 SYN 패킷과 리소스 서버 사이에 세션을 곧바로 생성하지 않습니다.
+- L4 장비는 클라이언트의 SYN 패킷에 대해 SYN Cookie 값으로 클라이언트가 응답 패킷으로 사용해야 하는 sequence 정보를 모두 포함한 값을 내려줍니다.
+  - L4 장비는 `Cookie에 모든 응답값을 포함했으므로 클라이언트의 SYN에 대한 세션을 기억하지 않습니다.` (즉, 세션 테이블에 별도로 저장하지 않음)
+- 그래서 많은 양의 요청이 들어와도 세션 테이블이 고갈되지 않습니다.
+  - 즉, L4에서 리소스 서버와의 연결을 허용하지 않습니다.
+
+![스크린샷 2022-10-10 오후 3 15 42](https://user-images.githubusercontent.com/75410527/194807587-1c7414b1-202c-4d8c-a437-4b0c2409418b.png)
+
+#### 정상적인 세션 연결과정
+
+SYN Cookie를 사용했을 때 올바른 요청이라면 아래와 같은 순서로 정상적인 세션 연결과정을 거칩니다.
+
+1. Client의 SYN 패킷 수신
+2. L4(방화벽)은 응답으로 SYN/ACK 패킷에 추가로 Cookie 값을 넣어 Client에 송신
+3. Client는 SYN/ACK에 대한 응답으로 ACK Number 필드에 Cookie+1한 값을 L4에 송신
+4. L4는 수신한 ACK 패킷의 ACK Number - 1한 값이 Cookie 값과 일치하면 리소스 서버와 TCP Connection을 설정시켜줌
+    - L4는 정상적인 Client로부터 timestamp 내에 응답이 오면 해당 Client의 원래 Cookie 값을 알아낼 수 있어 값 비교가 가능
+
+이처럼 정상적인 연결의 경우 SYN Cookie 값에 대한 유효성이 확인되었기에 L4는 클라이언트가 리소스 서버와 세션을 맺도록 중간다리 역할을 해줌
+
+![스크린샷 2022-10-10 오후 3 22 08](https://user-images.githubusercontent.com/75410527/194808235-59d903fc-bf77-4d17-af65-a47824215c3e.png)
+
+#### SYN Cookie 정보
+
+- SYN Cookie는 TCP Header 중 `Option(40 Byte)` 필드에 sequence 값을 인코딩한 정보를 포함하여 Client로 보냅니다.
+- Client는 이 인코딩된 정보를 받아서 자신이 다시 응답해야 할 패킷을 생성
+
+![스크린샷 2022-10-10 오후 3 31 18](https://user-images.githubusercontent.com/75410527/194809169-8bca5800-5301-4a20-8b1f-7a9d2289b2bd.png)
+
+### SYN Cookie 내용 정리
+
+- 클라이언트가 최초로 SYN 패킷으로 리소스 서버와 세션 연결을 하기 위한 시도를 하면, L4(방화벽)이 Cookie 정보에 사용자가 다시 ACK 패킷을 보낼 때 필요한 정보를 미리 포함하여 사용자에게 SYN/ACK 패킷을 내려주고 L4는 해당 내용에 대해 잊어버립니다.
+- 정상적인 사용자라면 해당 정보를 분석해서 ACK 패킷을 만들어 보낼 것이고, 이 패킷의 cookie 값을 분석하여 정상적인 세션 연결 응답이라고 L4 판단하면 그 때 리소스 서버와 연결을 허용해줍니다.
+
 ---
 
 - 출처
@@ -420,3 +482,5 @@ ACK, seq = K, ack = L + 1
   - [리눅스 서버의 TCP 네트워크 성능을 결정짓는 커널 파라미터 이야기 - 3편](https://meetup.toast.com/posts/55)
   - [TCP flag(URG, ACK, PSH, RST, SYN, FIN)](https://mindgear.tistory.com/206)
   - [[TCP] TCP 가 RST 패킷 송신하는 경우](https://blog.daum.net/tlos6733/65)
+  - [[DOS/DDOS] SYN Flooding 공격에 대해서 알아보자.](https://sata.kr/entry/DOSDDOS-SYN-Flooding-%EA%B3%B5%EA%B2%A9%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90)
+  - [[Anti-DOS]SYN Cookie](https://eunice513.tistory.com/161#SYN%--Flooding%--%EA%B-%B-%EA%B-%A-)
