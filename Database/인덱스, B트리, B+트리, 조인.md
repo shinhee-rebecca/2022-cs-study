@@ -36,6 +36,7 @@
 1. [B-트리와 B+트리 비교](#b-트리와-b트리-비교)
 1. [조인](#조인)
     - [Join이란?](#join이란)
+    - [Nested-Loop-Join(Join 동작 원리)]()
     - [Inner Join](#inner-join)
     - [Left Outer Join](#left-outer-join)
     - [Right Outer Join](#right-outer-join)
@@ -103,9 +104,14 @@
 
 ### 파일 조직에 따른 인덱스 분류
 
-- `Clustered Index`: 데이터 레코드의 물리적 순서가 그 파일에 대한 인덱스 엔트리 순서와 동일하게 유지되도록 구성된 인덱스 
+- `Clustered Index`
+  - 데이터 레코드의 물리적 순서가 그 파일에 대한 인덱스 엔트리 순서와 동일하게 유지되도록 구성된 인덱스 
   - Mysql의 경우 PK 설정시, 기본적으로 PK를 기준으로 Clustered Index 생성
-- `Unclustered Index`: 파일 인덱스 엔트리 순서가 데이터 레코드의 물리적 순서와 일치하지 않음. 파일 인덱스 엔트리의 리프 노드에는 해당 레코드의 주소값이(실제 값X) 들어가 있음
+  - `테이블당 한 개`를 만들 수 있다.
+- `Unclustered Index`
+  - 파일 인덱스 엔트리 순서가 데이터 레코드의 물리적 순서와 일치하지 않음. 
+  - 파일 인덱스 엔트리의 리프 노드에는 해당 레코드의 주소값이(실제 값X) 들어가 있음
+  - 물리적으로 데이터를 정렬하지 않는 대신 `위치정보를 인덱스로 구성`
 
 ## 결합 인덱스(다중 컬럼 인덱스)란
 
@@ -452,6 +458,48 @@ between, like, <, > 등 `범위 조건은 해당 컬럼은 인덱스를 타지�
 
 > 관계형 데이터베이스에서 두 개 이상의 테이블을 연결하여 데이터를 검색하는 방법. 여러 개의 테이블을 하나인 것처럼 활용한다.
 
+## Nested-Loop-Join(Join 동작 원리)
+
+![4_nestedloop](https://user-images.githubusercontent.com/75410527/192997653-7c100344-ada1-49bc-8316-13fbbfcecfd2.png)
+
+#### Table A: Driving Table 혹은 Outer Table이라고 함
+#### Table B: Driven Table 혹은 Inner Table이라고 함
+
+```sql
+# 등가조인[Equi Join]
+# SELECT * FROM 테이블1, 테이블2
+#	 WHERE 테이블명1.컬럼명1=테이블명2.컬럼명2;
+
+SELECT E.ENAME, D.DNAME
+FROM EMP E, DEPT D
+WHERE E.DEPTNO = D.DEPTNO
+;
+```
+
+1. Table A에서 row를 하나씩 반복해가며 스캔한다.
+1. Driving Table의 `row 하나 마다` 반대편 `Driven Table의 레코드를 하나씩 스캔`해서 Join 조건에 맞으면 데이터를 찾아서 가져온다.
+    - 선행 테이블에서 row를 가져온 후 `조인 조건절(등가조인이므로 WHERE절)을 검사`해서 동일한 조건을 가진 레코드면 후행 테이블에서 가져옴.
+1. 1~2 과정을 Driving Table의 `모든 row에 대해 반복`
+
+## Nested Loop의 실행시간
+
+- `Table A의 Row 개수` * `Table B의 Row 개수` = Nested Loop의 실행 시간
+- R(A) * R(B) = 실행시간 인데, R(A) * R(B) == R(B) * R(A) 
+- 여기서 재밌는 사실을 알 수 있습니다.
+- `Driving Table이 무엇이 되었든` 조회결과는 R(A) * R(B), R(B) * R(A)이므로 `동일함`
+- 그런데 우리는 `Driving Table은 작은걸 선택해야 성능이 좋아진다`는 이야기를 많이 들었습니다.
+- 이 이야기에는 1개지 대전제가 있습니다.
+
+#### 바로, "Driven Table(Table B)의 조인 키는 인덱스가 걸려 있어야 한다" 임
+
+![4_nestedloop2](https://user-images.githubusercontent.com/75410527/192999660-b2b92bec-15b0-4c95-9e1d-9ef1b98a4d75.png)
+
+- 일반적으로 조인은 `FK`를 통해 이루어지므로 위 대전제를 신경쓰지 않고 수행할때가 많음.
+- 반대로 Fk를 비롯한 `인덱스가 전혀 없는 컬럼`을 통해 조인을 실행하면 Driving Table이 어떤것이 되었든 실행시간은 비효율적으로 나타납니다.
+- 꼭 숙지해야할 내용은 이 한줄인것 같습니다.
+
+#### Row가 적은 Driving Table + Driven Table의 조인키에는 인덱스가 걸려있어야 GOOD
+
 ### Inner Join
 
 ![Index_B-Tree_B+Tree_Join4](https://user-images.githubusercontent.com/75410527/195395133-9fc8f60a-963b-432e-aaba-4de20117e138.png)
@@ -528,7 +576,11 @@ SELECT 출력할 칼럼명1, 칼럼명2,..
 
 ## 예상질문
 
-인덱스를 구현하는 방식에서 B 트리와 해시의 차이는?
+- DB 인덱스에 대해서 설명해주세요(DB 인덱스는 무엇인가요?)
+- 인덱스를 구현하는 방식에서 B+트리를 사용하는 방식과 해시를 사용하는 방식의 차이는 무엇일까요?
+- 테이블에 설정될 수 있는 인덱스 형태들에는 어떤 것들이 있나요?
+- Join 내부 동작 방식에 대해 알고 있나요?
+- inner join vs outer join 차이는? 
 
 ## References
 
@@ -542,3 +594,5 @@ SELECT 출력할 칼럼명1, 칼럼명2,..
 - [탐색자료구조(Binary Tree, B-Tree, B+ Tree, B* Tree, Bitmap Index)](http://ko.infomngproeng.wikidok.net/wp-d/60a1e50990b350fb11df6fa4/View#wk_cTitle7950)
 - [인덱스, B-Tree, B+Tree, Join](https://github.com/workhardslave/cs-study/blob/main/Database/Index_B-Tree_B%2BTree_Join.md)
 - [[개미의 걸음 SQLD 2과목] JOIN(외부조인, 내부조인, 등가조인 , 비등가조인 , 셀프조인, 네츄럴조인, 크로스 조인)](https://2030bigdata.tistory.com/222)
+- [* JOIN 원리](https://kshmc.tistory.com/entry/JOIN-%EC%9B%90%EB%A6%AC)
+- [패스트캠퍼스 SQL튜닝캠프 4일차 - 조인의 기본 원리와 활용](https://jojoldu.tistory.com/173)
