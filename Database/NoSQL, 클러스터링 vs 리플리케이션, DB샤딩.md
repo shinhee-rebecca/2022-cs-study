@@ -1,7 +1,7 @@
 # TL;DR
 
-- **`데이터 베이스 (Database, DB)`**란 ? 데이터의 저장소
-- **`데이터 베이스 관리 시스템(DBMS)`**이란? 데이터 베이스를 운영하고 관리하는 소프트웨어
+- **`데이터 베이스 (Database, DB)`** 란 ? 데이터의 저장소
+- **`데이터 베이스 관리 시스템(DBMS)`** 이란? 데이터 베이스를 운영하고 관리하는 소프트웨어
 - **`SQL`** 이란? 구조화된 질의 언어라는 뜻으로 관계형 데이터 베이스에서 사용되는 언어
 - **`NoSQL`** 이란?
 
@@ -64,7 +64,7 @@
 > - 다만 표준 SQL이 각 회사의 DBMS 특성을 모두 포용하지 못하기 때문에 표준 SQL을 준수하되 각 제품의 특성을 추가한 SQL을 사용한다.
 > - Oracle은 PL/SQL, SQL Server는 T-SQL, MySQL은 SQL로 명칭한다.
 
-<br><Br>
+<br><br>
 
 #### 비관계형 데이터 베이스의 등장 배경
 
@@ -111,7 +111,7 @@
 
 > Redis, Oracle NoSQL, Voldemorte, ...
 
-![Key-Value DB](/Users/songheelee/Desktop/img/5-3_key-value-db.png)
+![Key-Value DB](./img/5-3_key-value-db.png)
 
 - Amazon의 Dynamo Paper에서 유래
 
@@ -137,7 +137,7 @@
 
 > MongoDB, Azure Cosmos DB, CouchDB, ...
 
-![Document DB](/Users/songheelee/Desktop/img/5-3_document-db.png)
+![Document DB](./img/5-3_document-db.png)
 
 - Lotus Notes에서 유래
 - Key-Value 와 차이는 값을 문서로 저장한다는 점
@@ -161,7 +161,7 @@
 
 > HBase, Cassandra, Hypertable, ...
 
-![Wide Column DB](/Users/songheelee/Desktop/img/5-3_wide-column-db.png)
+![Wide Column DB](./img/5-3_wide-column-db.png)
 
 - Big Table DB라고도 하며, Google의 BigTable Paper에서 유래
 - Column Family 데이터 모델을 사용
@@ -184,7 +184,7 @@
 
 > Neo4J, Blasegraph, OrientDB
 
-![Graph DB](/Users/songheelee/Desktop/img/5-3_graph-db.png)
+![Graph DB](./img/5-3_graph-db.png)
 
 - Euler & Graph Theory에서 유래
 - 노드, 엣지, 프로퍼티와 함께 그래프 구조를 사용해 데이터를 표현하고 저장
