@@ -26,9 +26,11 @@
 | week5 | 2022.10.12 | 1. [트랜잭션 ~ 무결성 제약조건](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/Database/integrity%2C%20transaction%2C%20deadlock.md) <br />2. [DBMS ~ 외래키, 정규화](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/Database/DBMS%20~%20%EC%99%B8%EB%9E%98%ED%82%A4%2C%20%EC%A0%95%EA%B7%9C%ED%99%94.MD) <br />3. [NoSQL, 클러스터링 vs 리플리케이션, DB샤딩](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/Database/NoSQL%2C%20%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0%EB%A7%81%20vs%20%EB%A6%AC%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%2C%20DB%EC%83%A4%EB%94%A9.md) <br />4. [인덱스, B트리, B+트리, 조인](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/Database/%EC%9D%B8%EB%8D%B1%EC%8A%A4%2C%20B%ED%8A%B8%EB%A6%AC%2C%20B%2B%ED%8A%B8%EB%A6%AC%2C%20%EC%A1%B0%EC%9D%B8.md) |
 | week6 | 2022.10.19 | 1. [트리](https://github.com/shinhee-rebecca/2022-cs-study/blob/44209fb47d923173a2716dcfb2801d9c27749585/Algorithm/%ED%8A%B8%EB%A6%AC.md) <br />2. [그래프 알고리즘](https://github.com/shinhee-rebecca/2022-cs-study/blob/44209fb47d923173a2716dcfb2801d9c27749585/Algorithm/%EA%B7%B8%EB%9E%98%ED%94%84%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md) <br />3. [해시 테이블](https://github.com/shinhee-rebecca/2022-cs-study/blob/44209fb47d923173a2716dcfb2801d9c27749585/Algorithm/%ED%95%B4%EC%8B%9C%20%ED%85%8C%EC%9D%B4%EB%B8%94.md) <br />4. [정렬 알고리즘](https://github.com/shinhee-rebecca/2022-cs-study/blob/44209fb47d923173a2716dcfb2801d9c27749585/Algorithm/%EC%A0%95%EB%A0%AC%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md) |
 
-| week7 - 2022.10.26 - 모의면접 진행 (아래는 CS 과목별 핵심 키워드 및 예상 질문) |
-| ------------------------------------------------------------ |
-| 자료구조                                                     |
-| 운영체제                                                     |
-| 데이터베이스                                                 |
-| 네트워크                                                     |
+| week7 - 2022.10.26 - 모의면접 진행      |
+| --------------------------------------- |
+| 자료구조 (핵심 키워드 및 예상 질문)     |
+| 운영체제 (핵심 키워드 및 예상 질문)     |
+| 데이터베이스 (핵심 키워드 및 예상 질문) |
+| 네트워크 (핵심 키워드 및 예상 질문)     |
+
+
