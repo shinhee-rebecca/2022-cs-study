@@ -58,16 +58,16 @@ Process 란 실행 중인 프로그램으로 job, task, sequential process 라�
 
     ![process control block](./img/pcb.png)
     <br> 운영체제가 각 프로세스를 관리하기 위해 프로세스 당 유지하는 정보로, kernel data영역에 있다. <br>
-
+    
       1. OS가 관리상 사용하는 정보
          <br> : process state, process ID, scheduler information, priority 등 <br>
-
+    
       2. CPU 수행 관련 하드웨어 값
          <br> : program counter, registers <br>
-
+    
       3. 메모리 관련 위치 정보
          <br> : code, data, stack 위치 정보 <br>
-
+    
       4. 파일 관련 정보
          <br>open file descriptors 등 <br>
 
@@ -464,13 +464,7 @@ process state에 suspend(stopped)가 추가된다.
 - Queueing models : 이론적으로 프로세스의 arrive rate과 service rate을 계산
 - Implementation & Measurement : 실제 시스템에 알고리즘을 구현하여 성능 측정
 - Simulation : 모의 프로그램으로 작성해 trace(예제)를 입력해 결과 비교
-  <br><br>
-
-***
-
-***
-
-
+  <br><br><br>
 
 # 예상 질문
 
@@ -479,8 +473,6 @@ process state에 suspend(stopped)가 추가된다.
 프로세스는 실행 중인 프로그램이고, 스레드는 프로세스 내에서 실행되는 흐름의 단위를 말한다.<br>
 
 프로세스는 운영체제로부터 자원을 할당받으며 각 프로세스끼리 독립적이다. 반면 스레드는 하나의 프로세스가 할당받은 자원 내에서 Stack 영역만 따로 갖고 나머지는 공유 자원으로 사용한다.<br><br>
-
-
 
 ### 멀티 프로세스 VS 멀티 스레드
 
@@ -502,8 +494,6 @@ process state에 suspend(stopped)가 추가된다.
 
 멀티 프로세스로 실행되는 작업을 멀티 스레드로 실행한다면, 프로세스를 생성해 자원을 할당하는 시스템 콜도 줄어들고, 실제 할당할 메모리 양도 줄어든다. 뿐만 아니라 프로세스 간 통신보다 스레드 간의 통신이 비율이 적기 때문에 작업들 간의 통신에도 부담이 줄어든다. <br><br>
 
-
-
 ### 멀티 스레드의 사용 예시 또는 상황
 
 1. 웹사이트에서 비디오를 보려고 할 때 스레드들 중 한 개는 다른 스트림이 비디오를 검색하는 동안, 배경음악을 검색할 수 있다. 
@@ -514,11 +504,49 @@ process state에 suspend(stopped)가 추가된다.
    <br>스레드를 사용하지 않고 프로세스로 구현한다면 웹 서버는 한 사용자의 서비스 요청이 끝나야 다음 사용자에게 서비스를 제공할 수 있다.<br>
    멀티스레드로 서비스할 경우 클라이언트들의 응답 속도가 훨씬 빨라진다.<br><br>
 
+### User-level Thread 와 Kernel-level Thread
 
+User-level 스레드는 일반적으로 사용자 레벨의 라이브러리를 통해 구현해 스레드 생성 및 관리가 용이하고 속도가 빠르다는 장점이 있지만, 스레드 하나가 블락되면 나머지 스레드도 중단된다는 단점이 있습니다.
 
-***
+Kernel-level 스레드는 운영체제가 스레드 기능을 지원하도록 구현되며, 커널이 스레드의 생성 및 관리를 관리하기 때문에 느리지만 스레드 하나가 블락되더라도 다른 스레드가 중단되지 않습니다.
 
-***
+<br>
+
+### Context Switching의 Flow
+
+Context Switching은 CPU를 한 프로세스에서 다른 프로세스로 넘겨주는 과정입니다.
+
+1. CPU를 사용하던 프로세스 A가 system call 또는 interrupt 발생으로 CPU를 넘겨야 할 때
+
+2. CPU를 내어주는 프로세스 A의 상태를 A의 PCB에 기록하고,
+
+3. CPU를 새롭게 얻는 프로세스 B의 상태를 B의 PCB에서 읽어옵니다.
+
+<br>
+
+### 프로세스 스케줄링 알고리즘을 소개하고 각각의 장단점을 설명해주세요
+
+- First come First Service, Shortest Job First, Round Robin, Multi-Level Queue 방식을 알고 있습니다.
+
+- FCFS는 먼저 도착한 프로세스를 먼저 처리하는 방식으로 구현하기 쉽지만 효율이 떨어집니다.
+
+- SJF는 실행시간이 짧은 순서대로 프로세스를 처리하는 방식으로 평균 대기 시간을 최소화할 수 있지만 실행시간이 긴 프로세스는 계속 자원 할당을 받지 못하는 Starvation이 발생할 수 있습니다.
+
+- RR 방식은 Time Quantum을 두고 먼저 도착한 순서대로 프로세스를 처리하고 할당 시간이 지나면 자원을 반납하는 방식입니다. 특정 프로세스의 독점을 방지할 수 있지만 Time Quantum 설정이 성능에 큰 영향을 미치게 됩니다.
+
+- MLQ 방식은 우선순위 별로 큐를 만들고 각 큐마다 자신만의 스케줄링 기법을 사용하는 방식입니다. 우선순위가 낮은 큐는 기아현상이 발생할 수 있습니다.
+
+  <br>
+
+### 메모리에서 code / stack / data/ heap 등은 각각 어떤 영역인가요?
+
+코드영역은 작성한 코드가 들어가는 부분이고, 데이터 영역은 전역변수, 정적변수, 배열 등이 저장되는 공간입니다.
+
+스택은 지역변수, 매개변수 등이 저장되는 공간으로 함수가 호출되면 생성되고 종료되면 반환하는 임시 메모리입니다. 힙은 동적으로 사용하는 영역입니다.
+
+스택 영역은 컴파일 타임에 크기가 결정되고 힙 영역은 런 타임에 크기가 결정됩니다.
+
+<br><br><br>
 
 # References
 
