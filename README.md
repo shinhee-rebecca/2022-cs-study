@@ -28,7 +28,7 @@
 
 | week7 - 2022.10.26 - 모의면접 진행      |
 | --------------------------------------- |
-| [자료구조](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/Algorithm/예상 질문.md)     |
+| [자료구조 (핵심 키워드 및 예상 질문)](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/Algorithm/예상 질문.md)     |
 | [운영체제 (핵심 키워드 및 예상 질문)](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/Operating System/예상 질문.md)     |
 | [데이터베이스 (핵심 키워드 및 예상 질문)](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/Database/예상 질문.md) |
 | [네트워크 (핵심 키워드 및 예상 질문)](https://github.com/shinhee-rebecca/2022-cs-study/blob/main/Network/기술면접 질문 정리 - 네트워크.md)     |
