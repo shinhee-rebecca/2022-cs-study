@@ -349,4 +349,6 @@ Critical Section이 아주 짧은 경우가 아니라면 Block and wake up 방�
 
 [[운영체제] 7장 교착상태](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=three_letter&logNo=220380867227)
 
-[운영체제, OS, Operating System](
+[운영체제, OS, Operating System](https://truemind5.blogspot.com/2017/04/12-1.html)
+
+
