@@ -38,6 +38,8 @@
 
 ---
 
+<br />
+
 ### 데드락의 발생 조건
 
 <br />
@@ -68,6 +70,8 @@
 
 ---
 
+<br />
+
 ### 데드락의 처리 방법
 
 <br />
@@ -80,6 +84,8 @@
 <br />
 
 ---
+
+<br />
 
 ### 교착 상태 방지
 
@@ -119,6 +125,8 @@
 
 ---
 
+<br />
+
 ### 교착상태 회피
 
 <br />
@@ -137,6 +145,8 @@
 
 ---
 
+<br />
+
 ### 교착 상태 검출 및 복구
 
 <br />
@@ -151,6 +161,8 @@
 
 ---
 
+<br />
+
 ### 교착 상태 무시
 
 <br />
@@ -161,6 +173,8 @@
 
 ---
 
+<br />
+
 ## 동기화 문제
 
 <br />
@@ -170,6 +184,8 @@
 <br />
 
 ---
+
+<br />
 
 ### Race Condition(경쟁상태)
 
@@ -183,6 +199,8 @@
 <br />
 
 ---
+
+<br />
 
 ### Race Condition이 발생하는 경우
 
@@ -221,6 +239,8 @@
 
 ---
 
+<br />
+
 ### Critical Section (임계 구역)
 
 <br />
@@ -234,6 +254,8 @@
 
 ---
 
+<br />
+
 ### 동기화 문제를 해결하는 방법
 
 <br />
@@ -243,7 +265,7 @@
 하나의 스레드만이 공유자원에 접근할 수 있도록하여 경쟁 상황을 방지한다.
 
 - 하나의 스레드가 공유 자원에 lock을 걸면 다른 스레드는 unlock이 될 때까지 해당 자원에 접근할 수 없다. (lock의 획득과 반환을 통해 공유자원 접근을 제어한다.)
--  acquire 함수와 release 함수를 사용한다.
+- acquire 함수와 release 함수를 사용한다.
 - busy waiting을 통해 CPU가 낭비된다는 단점이 있다.
 
 <br />
@@ -291,6 +313,8 @@ Critical Section이 아주 짧은 경우가 아니라면 Block and wake up 방�
 
 ---
 
+<br />
+
 ## 예상 질문
 
 <br />
@@ -311,6 +335,8 @@ Critical Section이 아주 짧은 경우가 아니라면 Block and wake up 방�
 
 ---
 
+<br />
+
 ## References
 
 <br />
@@ -323,5 +349,4 @@ Critical Section이 아주 짧은 경우가 아니라면 Block and wake up 방�
 
 [[운영체제] 7장 교착상태](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=three_letter&logNo=220380867227)
 
-[운영체제, OS, Operating System](https://truemind5.blogspot.com/2017/04/12-1.html)
-
+[운영체제, OS, Operating System](
